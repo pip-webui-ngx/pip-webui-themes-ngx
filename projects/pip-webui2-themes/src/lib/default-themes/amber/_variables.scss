@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+$pip-amber-primary: mat.define-palette($pip-orange);
+$pip-amber-accent:  mat.define-palette($pip-orange, A700, A100, A400);
+$pip-amber-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-amber-theme:   mat.define-light-theme($pip-amber-primary, $pip-amber-accent, $pip-amber-warn);
+$themes: map-merge($themes, ('pip-amber-theme': $pip-amber-theme));

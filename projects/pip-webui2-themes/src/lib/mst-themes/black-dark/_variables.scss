@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+$mst-black-dark-primary: mat.define-palette($mst-dark);
+$mst-black-dark-accent:  mat.define-palette($mst-white);
+$mst-black-dark-warn:    mat.define-palette(mat.$red-palette, A200);
+$mst-black-dark-theme:   mat.define-dark-theme($mst-black-dark-primary, $mst-black-dark-accent, $mst-black-dark-warn);
+$themes: map-merge($themes, ('mst-black-dark-theme': $mst-black-dark-theme));

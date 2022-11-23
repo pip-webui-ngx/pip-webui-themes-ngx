@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+.pip-orange-theme {
+    @include mat.all-component-themes($pip-orange-theme);
+}

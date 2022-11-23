@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+$pip-grey-primary: mat.define-palette(mat.$blue-grey-palette);
+$pip-grey-accent:  mat.define-palette($pip-blue-grey, 300, A100, A400);
+$pip-grey-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-grey-theme:   mat.define-light-theme($pip-grey-primary, $pip-grey-accent, $pip-grey-warn);
+$themes: map-merge($themes, ('pip-grey-theme': $pip-grey-theme));

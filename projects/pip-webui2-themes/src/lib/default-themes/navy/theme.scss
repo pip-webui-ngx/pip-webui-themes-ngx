@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+.pip-navy-theme {
+    @include mat.all-component-themes($pip-navy-theme);
+}

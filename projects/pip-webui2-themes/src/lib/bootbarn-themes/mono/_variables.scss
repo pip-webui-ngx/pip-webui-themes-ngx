@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+$bootbarn-mono-primary: mat.define-palette(mat.$blue-grey-palette, 900);
+$bootbarn-mono-accent:  mat.define-palette(mat.$green-palette, 600, A100, A400);
+$bootbarn-mono-warn:    mat.define-palette(mat.$red-palette, A200);
+$bootbarn-mono-theme:   mat.define-light-theme($bootbarn-mono-primary, $bootbarn-mono-accent, $bootbarn-mono-warn);
+$themes: map-merge($themes, ('bootbarn-mono-theme': $bootbarn-mono-theme));

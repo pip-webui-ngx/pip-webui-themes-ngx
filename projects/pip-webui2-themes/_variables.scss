@@ -1,0 +1,725 @@
+@use '@angular/material' as mat;
+
+$themes: ();
+$bootbarn-deep-orange: (
+  50: #fbe9e7,
+  100: #ffccbc,
+  200: #ffab91,
+  300: #ff8a65,
+  400: #ff7043,
+  500: #ff5722,
+  600: #f4511e,
+  700: #e64a19,
+  800: #d84315,
+  900: #b13722,
+  A100: #ff9e80,
+  A200: #ff6e40,
+  A400: #ff3d00,
+  A700: #dd2c00,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  )
+);
+
+
+$bootbarn-teal: (
+  50: #e0f2f1,
+  100: #b2dfdb,
+  200: #80cbc4,
+  300: #4db6ac,
+  400: #26a69a,
+  500: #009688,
+  600: #00897b,
+  700: #00796b,
+  800: #00695c,
+  900: #004d40,
+  A100: #a7ffeb,
+  A200: #64ffda,
+  A400: #1de9b6,
+  A700: #7f945c,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white
+  )
+);
+
+$bootbarn-green: (
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #4caf50,
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  )
+);
+
+$bootbarn-cool-primary: mat.define-palette(mat.$blue-grey-palette, 700);
+$bootbarn-cool-accent:  mat.define-palette($bootbarn-green, 500, A100, A400);
+$bootbarn-cool-warn:    mat.define-palette(mat.$red-palette, A200);
+$bootbarn-cool-theme:   mat.define-light-theme($bootbarn-cool-primary, $bootbarn-cool-accent, $bootbarn-cool-warn);
+$themes: map-merge($themes, ('bootbarn-cool-theme': $bootbarn-cool-theme));
+$bootbarn-mono-primary: mat.define-palette(mat.$blue-grey-palette, 900);
+$bootbarn-mono-accent:  mat.define-palette(mat.$green-palette, 600, A100, A400);
+$bootbarn-mono-warn:    mat.define-palette(mat.$red-palette, A200);
+$bootbarn-mono-theme:   mat.define-light-theme($bootbarn-mono-primary, $bootbarn-mono-accent, $bootbarn-mono-warn);
+$themes: map-merge($themes, ('bootbarn-mono-theme': $bootbarn-mono-theme));
+$bootbarn-warm-primary: mat.define-palette($bootbarn-deep-orange, 900);
+$bootbarn-warm-accent:  mat.define-palette($bootbarn-teal, A700, A100, A400);
+$bootbarn-warm-warn:    mat.define-palette(mat.$red-palette, A200);
+$bootbarn-warm-theme:   mat.define-light-theme($bootbarn-warm-primary, $bootbarn-warm-accent, $bootbarn-warm-warn);
+$themes: map-merge($themes, ('bootbarn-warm-theme': $bootbarn-warm-theme));
+$pip-green: (
+    50: #e8f5e9,
+    100: #c8e6c9,
+    200: #a5d6a7,
+    300: #81c784,
+    400: #66bb6a,
+    500: #4caf50,
+    600: #43a047,
+    700: #388e3c,
+    800: #2e7d32,
+    900: #1b5e20,
+    A100: #b9f6ca,
+    A200: #69f0ae,
+    A400: #00e676,
+    A700: #00c853,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: rgba(black, 0.87),
+      500: white,
+      600: white,
+      700: white,
+      800: rgba(white, 0.87),
+      900: rgba(white, 0.87),
+      A100: rgba(black, 0.87),
+      A200: rgba(black, 0.87),
+      A400: white, // todo
+      A700: white, // todo
+    )
+  );
+  
+
+  $pip-amber: (
+    50: #fff8e1,
+    100: #ffecb3,
+    200: #ffe082,
+    300: #ffd54f,
+    400: #ffca28,
+    500: #ffc107,
+    600: #ffb300,
+    700: #ffa000,
+    800: #ff8f00,
+    900: #ff6f00,
+    A100: #ffe57f,
+    A200: #ffd740,
+    A400: #ffc400,
+    A700: #ffab00,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: rgba(black, 0.87),
+      500: rgba(black, 0.87),
+      600: rgba(black, 0.87),
+      700: rgba(black, 0.87),
+      800: rgba(black, 0.87),
+      900: rgba(black, 0.87),
+      A100: rgba(black, 0.87),
+      A200: rgba(black, 0.87),
+      A400: rgba(black, 0.87),
+      A700: white // todo
+    )
+  );
+
+
+  $pip-pink: (
+    50: #fce4ec,
+    100: #f8bbd0,
+    200: #f48fb1,
+    300: #f06292,
+    400: #ec407a,
+    500: #bc5679,
+    600: #d81b60,
+    700: #c2185b,
+    800: #ad1457,
+    900: #880e4f,
+    A100: #ff80ab,
+    A200: #ff4081,
+    A400: #f50057,
+    A700: #c51162,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: rgba(black, 0.87),
+      500: white,
+      600: white,
+      700: rgba(white, 0.87),
+      800: rgba(white, 0.87),
+      900: rgba(white, 0.87),
+      A100: white,
+      A200: white,
+      A400: white,
+      A700: white,
+    )
+  );
+
+
+$pip-deep-orange: (
+    50: #fbe9e7,
+    100: #ffccbc,
+    200: #ffab91,
+    300: #ff8a65,
+    400: #ff7043,
+    500: #ff5722,
+    600: #f4511e,
+    700: #e64a19,
+    800: #d84315,
+    900: #bf360c,
+    A100: #ff9e80,
+    A200: #ff6e40,
+    A400: #ff3d00,
+    A700: #dd2c00,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: white,
+      500: white,
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: rgba(black, 0.87),
+      A200: rgba(black, 0.87),
+      A400: white,
+      A700: white,
+    )
+  );
+
+  $pip-orange: (
+    50: #fff3e0,
+    100: #ffe0b2,
+    200: #ffcc80,
+    300: #ffb74d,
+    400: #ffa726,
+    500: #ff9800,
+    600: #fb8c00,
+    700: #f57c00,
+    800: #ef6c00,
+    900: #e65100,
+    A100: #ffd180,
+    A200: #ffab40,
+    A400: #ff9100,
+    A700: #ff6d00,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: rgba(black, 0.87),
+      500: white,
+      600: rgba(black, 0.87),
+      700: rgba(black, 0.87),
+      800: white,
+      900: white,
+      A100: rgba(black, 0.87),
+      A200: white, // todo
+      A400: rgba(black, 0.87),
+      A700: white,
+    )
+  );
+
+  $pip-navy: (
+    50: #eceff1,
+    100: #cfd8dc,
+    200: #b0bec5,
+    300: #90a4ae,
+    400: #78909c,
+    500: #56617d,
+    600: #546e7a,
+    700: #455a64,
+    800: #37474f,
+    900: #263238,
+    A100: #cfd8dc,
+    A200: #b0bec5,
+    A400: #78909c,
+    A700: #455a64,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: white,
+      500: white,
+      600: rgba(white, 0.87),
+      700: rgba(white, 0.87),
+      800: rgba(white, 0.87),
+      900: rgba(white, 0.87),
+      A100: rgba(black, 0.87),
+      A200: rgba(black, 0.87),
+      A400: white,
+      A700: rgba(white, 0.87),
+    )
+  );
+
+
+$pip-teal: (
+  50: #e0f2f1,
+  100: #b2dfdb,
+  200: #80cbc4,
+  300: #4db6ac,
+  400: #26a69a,
+  500: #009688,
+  600: #00897b,
+  700: #00796b,
+  800: #00695c,
+  900: #004d40,
+  A100: #a7ffeb,
+  A200: #64ffda,
+  A400: #1de9b6,
+  A700: #00bfa5,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white,
+  )
+);
+
+$pip-blue-grey: (
+  50: #eceff1,
+  100: #cfd8dc,
+  200: #b0bec5,
+  300: #90a4ae,
+  400: #78909c,
+  500: #607d8b,
+  600: #546e7a,
+  700: #455a64,
+  800: #37474f,
+  900: #263238,
+  A100: #cfd8dc,
+  A200: #b0bec5,
+  A400: #78909c,
+  A700: #455a64,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: rgba(white, 0.87),
+    700: rgba(white, 0.87),
+    800: rgba(white, 0.87),
+    900: rgba(white, 0.87),
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: rgba(white, 0.87),
+  )
+);
+
+$pip-amber-primary: mat.define-palette($pip-orange);
+$pip-amber-accent:  mat.define-palette($pip-orange, A700, A100, A400);
+$pip-amber-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-amber-theme:   mat.define-light-theme($pip-amber-primary, $pip-amber-accent, $pip-amber-warn);
+$themes: map-merge($themes, ('pip-amber-theme': $pip-amber-theme));
+$pip-black-primary: mat.define-palette(mat.$blue-grey-palette, 900);
+$pip-black-accent:  mat.define-palette(mat.$blue-grey-palette, 600, A100, A400);
+$pip-black-warn:    mat.define-palette(mat.$red-palette, A700);
+$pip-black-theme:   mat.define-dark-theme($pip-black-primary, $pip-black-accent, $pip-black-warn);
+$themes: map-merge($themes, ('pip-black-theme': $pip-black-theme));
+$pip-blue-primary: mat.define-palette(mat.$blue-palette);
+$pip-blue-accent:  mat.define-palette($pip-green, A700, A100, A400);
+$pip-blue-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-blue-theme:   mat.define-light-theme($pip-blue-primary, $pip-blue-accent, $pip-blue-warn);
+$themes: map-merge($themes, ('pip-blue-theme': $pip-blue-theme));
+$candy-app-primary: mat.define-palette(mat.$indigo-palette);
+$candy-app-accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$candy-app-warn: mat.define-palette(mat.$red-palette);
+$candy-app-theme: mat.define-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$themes: map-merge($themes, ('candy-theme': $candy-app-theme));
+$pip-dark-primary: mat.define-palette(mat.$grey-palette, 900);
+$pip-dark-accent:  mat.define-palette($pip-green, A700, A100, A400);
+$pip-dark-warn:    mat.define-palette(mat.$red-palette, A700);
+$pip-dark-theme:   mat.define-dark-theme($pip-dark-primary, $pip-dark-accent, $pip-dark-warn);
+$themes: map-merge($themes, ('pip-dark-theme': $pip-dark-theme));
+$pip-green-primary: mat.define-palette($pip-green);
+$pip-green-accent:  mat.define-palette($pip-amber, A700, A100, A400);
+$pip-green-warn:    mat.define-palette(mat.$red-palette, A700);
+$pip-green-theme:   mat.define-light-theme($pip-green-primary, $pip-green-accent, $pip-green-warn);
+$themes: map-merge($themes, ('pip-green-theme': $pip-green-theme));
+$pip-grey-primary: mat.define-palette(mat.$blue-grey-palette);
+$pip-grey-accent:  mat.define-palette($pip-blue-grey, 300, A100, A400);
+$pip-grey-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-grey-theme:   mat.define-light-theme($pip-grey-primary, $pip-grey-accent, $pip-grey-warn);
+$themes: map-merge($themes, ('pip-grey-theme': $pip-grey-theme));
+$pip-navy-primary: mat.define-palette($pip-navy);
+$pip-navy-accent:  mat.define-palette($pip-teal, A700, A100, A400);
+$pip-navy-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-navy-theme:   mat.define-light-theme($pip-navy-primary, $pip-navy-accent, $pip-navy-warn);
+$themes: map-merge($themes, ('pip-navy-theme': $pip-navy-theme));
+$pip-orange-primary: mat.define-palette($pip-deep-orange, 400);
+$pip-orange-accent:  mat.define-palette($pip-orange, A200, A400, A100);
+$pip-orange-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-orange-theme:   mat.define-light-theme($pip-orange-primary, $pip-orange-accent, $pip-orange-warn);
+$themes: map-merge($themes, ('pip-orange-theme': $pip-orange-theme));
+$pip-pink-primary: mat.define-palette($pip-pink);
+$pip-pink-accent:  mat.define-palette($pip-pink, A100, A100, A100);
+$pip-pink-warn:    mat.define-palette(mat.$red-palette, A200);
+$pip-pink-theme:   mat.define-light-theme($pip-pink-primary, $pip-pink-accent, $pip-pink-warn);
+$themes: map-merge($themes, ('pip-pink-theme': $pip-pink-theme));
+$dark-primary: mat.define-palette(mat.$blue-grey-palette);
+$dark-accent:  mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$dark-warn:    mat.define-palette(mat.$deep-orange-palette);
+$dark-theme:   mat.define-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$themes: map-merge($themes, ('unicorn-dark-theme': $dark-theme));
+$mst-orange: (50: #fbeee0,
+    100: #f6d4b3,
+    200: #f0b880,
+    300: #ea9c4d,
+    400: #e68626,
+    500: #e17100,
+    600: #dd6900,
+    700: #d95e00,
+    800: #d55400,
+    900: #cd4200,
+    A100: #fff7f5,
+    A200: #ffd1c2,
+    A400: #ffab8f,
+    A700: #ff9875,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: white,
+        600: rgba(black, 0.87),
+        700: rgba(black, 0.87),
+        800: white,
+        900: white,
+        A100: rgba(black, 0.87),
+        A200: white, // todo
+        A400: rgba(black, 0.87),
+        A700: white,
+    ));
+
+$mst-dark: (50: #e4e4e4,
+    100: #bcbcbc,
+    200: #8f8f8f,
+    300: #626262,
+    400: #404040,
+    500: #1e1e1e,
+    600: #1a1a1a,
+    700: #161616,
+    800: #121212,
+    900: #0a0a0a,
+    A100: #e07171,
+    A200: #d74747,
+    A400: #eb0000,
+    A700: #d10000,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: rgba(black, 0.87),
+        A200: white,
+        A400: white,
+        A700: white,
+    ));
+
+$mst-grey: (50: #ebebeb,
+    100: #cccece,
+    200: #abadae,
+    300: #898c8d,
+    400: #6f7374,
+    500: #565a5c,
+    600: #4f5254,
+    700: #45484a,
+    800: #3c3f41,
+    900: #2b2e30,
+    A100: #8ac0f6,
+    A200: #5aa7f3,
+    A400: #1b8dff,
+    A700: #0280ff,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: rgba(black, 0.87),
+        A200: rgba(black, 0.87),
+        A400: white,
+        A700: white,
+    ));
+
+$mst-white: (50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: white,
+    A200: white,
+    A400: white,
+    A700: white,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: rgba(black, 0.87),
+        500: rgba(black, 0.87),
+        600: rgba(black, 0.87),
+        700: rgba(black, 0.87),
+        800: rgba(black, 0.87),
+        900: rgba(black, 0.87),
+        A100: rgba(black, 0.87),
+        A200: rgba(black, 0.87),
+        A400: rgba(black, 0.87),
+        A700: rgba(black, 0.87),
+    ));
+
+$mst-elegant-orange: (
+    50: #ffe2cc,
+    100: #ffc699,
+    200: #ffa966,
+    300: #ff8d33,
+    400: #ff7900,
+    500: #ff7000,
+    600: #e84f13,
+    700: #e23703,
+    800: #e22e03,
+    900: #e22503,
+    A100: #ffffff,
+    A200: #fff5f2,
+    A400: #ffccbf,
+    A700: #ffb7a6,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: rgba(black, 0.87),
+        A200: rgba(black, 0.87),
+        A400: rgba(black, 0.87),
+        A700: rgba(black, 0.87),
+    )
+);
+
+$mst-elegant-teal: (
+    50: #e0eff0,
+    100: #cce4e6,
+    200: #99c8cd,
+    300: #67adb3,
+    400: #33919a,
+    500: #007681,
+    600: #006e79,
+    700: #00636e,
+    800: #005961,
+    900: #004651,
+    A100: #84eaff,
+    A200: #51e2ff,
+    A400: #1ed9ff,
+    A700: #1cc9ac,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: rgba(black, 0.87),
+        A200: rgba(black, 0.87),
+        A400: rgba(black, 0.87),
+        A700: rgba(black, 0.87),
+    )
+);
+
+$mst-elegant-mono: (
+    50: #d2d2d2,
+    100: #b5b6b3,
+    200: #a5a5a5,
+    300: #787878,
+    400: #565a5c,
+    500: #484848,
+    600: #1e1e1e,
+    900: #000000,
+    A100: #025521
+);
+
+$mst-elegant-yellow: (
+    50: #FCFC8D,
+    100: #F4A008,
+    200: #EFFA0A,
+    300: #EFEA50,
+    400: #D0D871,
+    500: #938D3E,
+    600: #8E7339
+);
+
+$mst-black-primary: mat.define-palette($mst-dark);
+$mst-black-accent:  mat.define-palette($mst-orange);
+$mst-black-warn:    mat.define-palette(mat.$red-palette, A200);
+$mst-black-theme:   mat.define-light-theme($mst-black-primary, $mst-black-accent, $mst-black-warn);
+$themes: map-merge($themes, ('mst-black-theme': $mst-black-theme));
+$mst-black-dark-primary: mat.define-palette($mst-dark);
+$mst-black-dark-accent:  mat.define-palette($mst-white);
+$mst-black-dark-warn:    mat.define-palette(mat.$red-palette, A200);
+$mst-black-dark-theme:   mat.define-dark-theme($mst-black-dark-primary, $mst-black-dark-accent, $mst-black-dark-warn);
+$themes: map-merge($themes, ('mst-black-dark-theme': $mst-black-dark-theme));
+$mst-mono-primary: mat.define-palette($mst-dark);
+$mst-mono-accent:  mat.define-palette($mst-grey);
+$mst-mono-warn:    mat.define-palette(mat.$red-palette, A200);
+$mst-mono-theme:   mat.define-light-theme($mst-mono-primary, $mst-mono-accent, $mst-mono-warn);
+$themes: map-merge($themes, ('mst-mono-theme': $mst-mono-theme));
+$mst-orange-primary: mat.define-palette($mst-orange);
+$mst-orange-accent:  mat.define-palette($mst-dark);
+$mst-orange-warn:    mat.define-palette(mat.$red-palette, 700);
+$mst-orange-theme:   mat.define-light-theme($mst-orange-primary, $mst-orange-accent, $mst-orange-warn);
+$themes: map-merge($themes, ('mst-orange-theme': $mst-orange-theme));
+$mst-orange-dark-primary: mat.define-palette($mst-orange);
+$mst-orange-dark-accent:  mat.define-palette($mst-white);
+$mst-orange-dark-warn:    mat.define-palette(mat.$red-palette, 700);
+$mst-orange-dark-theme:   mat.define-dark-theme($mst-orange-dark-primary, $mst-orange-dark-accent, $mst-orange-dark-warn);
+$themes: map-merge($themes, ('mst-orange-dark-theme': $mst-orange-dark-theme));
+$dark-background:     #32333c;
+$dark-bg-lighter-5:   lighten($dark-background, 5%);
+$dark-bg-lighter-10:  lighten($dark-background, 10%);
+$dark-bg-lighter-20:  lighten($dark-background, 20%);
+$dark-bg-lighter-30:  lighten($dark-background, 30%);
+$light-bg-alpha-4:    rgba(#fafafa, 0.04);
+$light-bg-alpha-12:   rgba(#fafafa, 0.12);
+
+// Background palette for dark themes.
+mat.$dark-theme-background-palette: (
+  background:               $dark-background,
+  status-bar:               $dark-bg-lighter-20,
+  app-bar:                  $dark-bg-lighter-5,
+  hover:                    $light-bg-alpha-4,
+  card:                     $dark-bg-lighter-5,
+  dialog:                   $dark-bg-lighter-5,
+  disabled-button:          $light-bg-alpha-12,
+  raised-button:            $dark-bg-lighter-5,
+  focused-button:           rgba(white, 0.12),
+  selected-button:          $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle:   $dark-bg-lighter-10,
+  unselected-chip:          $dark-bg-lighter-20,
+  disabled-list-option:     $dark-bg-lighter-10,
+);
+
+$mst-elegant-primary: mat.define-palette($mst-elegant-teal);
+$mst-elegant-accent:  mat.define-palette($mst-elegant-orange);
+$mst-elegant-warn:    mat.define-palette(mat.$red-palette, A200);
+$mst-elegant-theme:   mat.define-dark-theme($mst-elegant-primary, $mst-elegant-accent, $mst-elegant-warn);
+$themes: map-merge($themes, ('mst-elegant-theme': $mst-elegant-theme));
+$mst-elegant-palette-orange: map-get($mst-elegant-orange, 400), map-get($mst-elegant-orange, 300),
+  map-get($mst-elegant-orange, 200), map-get($mst-elegant-orange, 100), map-get($mst-elegant-orange, 50);
+$mst-elegant-palette-teal: map-get($mst-elegant-teal, 400), map-get($mst-elegant-teal, 300),
+  map-get($mst-elegant-teal, 200), map-get($mst-elegant-teal, 100);
+$mst-elegant-palette-grey: map-get($mst-elegant-mono, 500), map-get($mst-elegant-mono, 300),
+  map-get($mst-elegant-mono, 200), map-get($mst-elegant-mono, 50);
+$mst-elegant-palette-grellow: map-get($mst-elegant-yellow, 200), map-get($mst-elegant-yellow, 300),
+  map-get($mst-elegant-yellow, 400), map-get($mst-elegant-yellow, 500);
+$mst-elegant-palette-avatar: map-get($mst-elegant-orange, 700), map-get($mst-elegant-orange, 600),
+  map-get($mst-elegant-orange, 500), map-get($mst-elegant-orange, 400), map-get($mst-elegant-teal, A700),
+  map-get($mst-elegant-teal, 900), map-get($mst-elegant-teal, 800), map-get($mst-elegant-teal, 500),
+  map-get($mst-elegant-teal, 400), map-get($mst-elegant-mono, A100), map-get($mst-elegant-mono, 500),
+  map-get($mst-elegant-yellow, 100), map-get($mst-elegant-yellow, 600), map-get($mst-elegant-yellow, 500);
+$mst-elegant-palletes: (
+  'avatar': $mst-elegant-palette-avatar,
+  'orange': $mst-elegant-palette-orange,
+  'teal': $mst-elegant-palette-teal,
+  'grey': $mst-elegant-palette-grey,
+  'grellow': $mst-elegant-palette-grellow
+);

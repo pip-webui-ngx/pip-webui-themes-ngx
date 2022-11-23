@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+@mixin default-mixin($theme) {
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $success: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    .pip-title {
+        color: mat.get-color-from-palette($foreground, 'text');
+    }
+    .pip-subtitle {
+        color: mat.get-color-from-palette($foreground, 'secondary-text');
+    }
+    .pip-error {
+        color: mat.get-color-from-palette($warn) !important;
+    }
+    .pip-success {
+        color: mat.get-color-from-palette($success) !important;
+    }
+    .pip-link {
+        color: mat.get-color-from-palette($primary) !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+    }
+}
+
+@each $class, $theme in $themes {
+    .#{$class} {
+        @include default-mixin($theme);
+    }
+}

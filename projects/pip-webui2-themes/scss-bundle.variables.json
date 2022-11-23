@@ -1,0 +1,8 @@
+{
+    "bundlerOptions": {
+        "entryFile": "./projects/pip-webui2-themes/src/lib/_variables.scss",
+        "rootDir": "./",
+        "outFile": "./dist/pip-webui2-themes/_variables.scss",
+        "ignoreImports": ["~@angular/.*", "^~", "node_modules"]
+    }
+}

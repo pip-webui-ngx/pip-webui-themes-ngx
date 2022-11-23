@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+.pip-blue-theme {
+    @include mat.all-component-themes($pip-blue-theme);
+}

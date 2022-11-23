@@ -1,0 +1,4 @@
+@use '@angular/material' as mat;
+.pip-amber-theme {
+    @include mat.all-component-themes($pip-amber-theme);
+}
