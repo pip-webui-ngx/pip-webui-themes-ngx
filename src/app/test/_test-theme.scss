@@ -9,8 +9,9 @@
 
   .pip-test .content {
     // Use mat-color to extract individual colors from a palette as necessary.
+    color: map.get($primary, 'default-contrast');
     background-color: mat.get-color-from-palette($primary);
-    border-color: mat.get-color-from-palette($accent, A400);
+    border-color: mat.get-color-from-palette($accent, A400) !important;
   }
 }
 
