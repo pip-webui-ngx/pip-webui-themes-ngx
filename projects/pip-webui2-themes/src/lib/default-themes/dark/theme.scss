@@ -1,4 +1,0 @@
-@use '@angular/material' as mat;
-.pip-dark-theme {
-    @include mat.all-component-themes($pip-dark-theme);
-}

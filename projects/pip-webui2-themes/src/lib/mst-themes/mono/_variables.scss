@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$mst-mono-primary: mat.define-palette($mst-dark);
-$mst-mono-accent:  mat.define-palette($mst-grey);
-$mst-mono-warn:    mat.define-palette(mat.$red-palette, A200);
-$mst-mono-theme:   mat.define-light-theme($mst-mono-primary, $mst-mono-accent, $mst-mono-warn);
-$themes: map-merge($themes, ('mst-mono-theme': $mst-mono-theme));

@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use 'node_modules/@angular/material' as mat;
+
+
+@mixin color($color) {
+  // Extract whichever individual palettes you need from the theme.
+  $primary: map-get($color, primary);
+  $accent: map-get($color, accent);
+
+  .pip-test .content {
+    // Use mat-color to extract individual colors from a palette as necessary.
+    background-color: mat.get-color-from-palette($primary);
+    border-color: mat.get-color-from-palette($accent, A400);
+  }
+}
+
+@mixin typography($config-or-theme) {
+}
+
+@mixin _density($config-or-theme) {
+}
+
+@mixin theme($theme-or-color-config) {
+  $theme: mat.private-legacy-get-theme($theme-or-color-config);
+  @include mat.private-check-duplicate-theme-styles($theme, 'pip-test') {
+    $color: mat.get-color-config($theme);
+    $density: mat.get-density-config($theme);
+    $typography: mat.get-typography-config($theme);
+
+    @if $color != null {
+      @include color($color);
+    }
+    @if $density != null {
+      @include _density($density);
+    }
+    @if $typography != null {
+      @include typography($typography);
+    }
+  }
+}

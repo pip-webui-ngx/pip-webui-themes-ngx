@@ -1,35 +1,46 @@
-.app-pic {
-    height: 300px;
-    max-width: 100%;
-}
+:host {
+  .mat-sidenav-container {
+    height: 100%;
 
-.content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden
-}
+    .mat-sidenav-content {
+      display: flex;
+      flex-direction: column;
 
-::ng-deep .router {
-    flex: 1 1 100%;
-    padding: 16px;
-}
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        overflow: auto;
 
-::ng-deep .mat-toolbar .mat-select-value {
-    color: #fff !important;
-    text-align: end !important;
-}
+        .content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 700px;
 
-.router {
-    display: block;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 16px;
-}
+          .app-pic {
+            height: 300px;
+            max-width: 100%;
+          }
 
-.example-appbar {
-    z-index: 10;
-    position: relative;
+          .pip-classes {
+            display: flex;
+            flex-direction: row;
+
+            & > div {
+              display: flex;
+              flex-direction: column;
+
+              & > div {
+                padding: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

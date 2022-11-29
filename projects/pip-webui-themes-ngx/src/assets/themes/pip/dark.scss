@@ -1,0 +1,17 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$pip-dark-primary: mat.define-palette(mat.$grey-palette, 900);
+$pip-dark-accent: mat.define-palette(colors.$pip-green, A700, A100, A400);
+$pip-dark-warn: mat.define-palette(mat.$red-palette, A700);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-dark-theme((
+    color: (
+      primary: $pip-dark-primary,
+      accent: $pip-dark-accent,
+      warn: $pip-dark-warn,
+    ),
+    typography: $typography-config
+  ));
+}

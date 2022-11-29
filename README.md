@@ -4,15 +4,15 @@
 
 Pip.WebUI 2 Themes module contains a mechanism to define and dynamically switch color themes for both Angular Material and custom controls.
 
-<a href="https://github.com/pip-webui2/pip-webui2-themes/raw/master/doc/images/image.png" style="display: block;">
-    <img src="https://github.com/pip-webui2/pip-webui2-themes/raw/master/doc/images/image.png"/>
+<a href="https://github.com/pip-webui2/pip-webui-themes-ngx/raw/master/doc/images/image.png" style="display: block;">
+    <img src="https://github.com/pip-webui2/pip-webui-themes-ngx/raw/master/doc/images/image.png"/>
 </a>
 
 ## Using
 
 Add module to imports:
 ```typescript
-import { PipThemesModule } from 'pip-webui2-themes';
+import { PipThemesModule } from 'pip-webui-themes-ngx';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ export class AppModule { }
 
 Use service to change theme, get theme list and name of current theme.
 ```typescript
-import { PipThemesService, Theme } from 'pip-webui2-themes';
+import { PipThemesService, Theme } from 'pip-webui-themes-ngx';
 
 export class AppComponent {
     public themes: Theme[];
@@ -64,7 +64,7 @@ class Theme {
 To install this module using npm:
 
 ```bash
-npm install pip-webui2-themes --save
+npm install pip-webui-themes-ngx --save
 ```
 
 ## <a name="license"></a>License

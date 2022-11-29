@@ -1,0 +1,67 @@
+@use 'node_modules/@angular/material' as mat;
+
+@mixin pip-webui-themes-ngx-mixin($config-or-theme) {
+  $config: mat.get-color-config($config-or-theme);
+  $background: map-get($config, background);
+  $foreground: map-get($config, foreground);
+  $accent: map-get($config, accent);
+  $primary: map-get($config, primary);
+  $warn: map-get($config, warn);
+
+  .pip-title {
+    color: mat.get-color-from-palette($foreground, 'text');
+  }
+
+  .pip-subtitle {
+    color: mat.get-color-from-palette($foreground, 'secondary-text');
+  }
+
+  .pip-error {
+    color: mat.get-color-from-palette($warn) !important;
+  }
+
+  .pip-success {
+    color: mat.get-color-from-palette($accent) !important;
+  }
+
+  .pip-link {
+    color: mat.get-color-from-palette($primary) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+  }
+
+  $properties: ('color', 'background-color');
+  $palettes: (
+    'accent': $accent,
+    'primary': $primary,
+    'warn': $warn,
+  );
+
+  @each $p in $properties {
+    @each $name, $src in $palettes {
+      .pip-#{$p}-#{$name} {
+        #{$p}: map-get($src, 'default');
+      }
+
+      .pip-#{$p}-#{$name}-contrast {
+        #{$p}: map-get($src, 'default-contrast');
+      }
+
+      .pip-#{$p}-#{$name}-light {
+        #{$p}: map-get($src, 50);
+      }
+    }
+
+    .pip-#{$p}-text {
+      #{$p}: map-get($foreground, 'text');
+    }
+
+    .pip-#{$p}-secondary-text {
+      #{$p}: map-get($foreground, 'secondary-text');
+    }
+
+    .pip-#{$p}-card {
+      #{$p}: map-get($background, 'card');
+    }
+  }
+}

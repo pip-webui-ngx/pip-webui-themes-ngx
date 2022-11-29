@@ -1,0 +1,29 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$mst-mono-primary: mat.define-palette(colors.$mst-dark);
+$mst-mono-accent: mat.define-palette(colors.$mst-grey);
+$mst-mono-warn: mat.define-palette(mat.$red-palette, A200);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-light-theme((
+    color: (
+      primary: $mst-mono-primary,
+      accent: $mst-mono-accent,
+      warn: $mst-mono-warn,
+    ),
+    typography: $typography-config
+  ));
+}
+
+@mixin mst-mono-mixin() {
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button,
+  .mat-stroked-button,
+  .mat-icon-button,
+  .mat-fab,
+  .mat-mini-fab {
+    text-transform: uppercase;
+  }
+}

@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$pip-green-primary: mat.define-palette($pip-green);
-$pip-green-accent:  mat.define-palette($pip-amber, A700, A100, A400);
-$pip-green-warn:    mat.define-palette(mat.$red-palette, A700);
-$pip-green-theme:   mat.define-light-theme($pip-green-primary, $pip-green-accent, $pip-green-warn);
-$themes: map-merge($themes, ('pip-green-theme': $pip-green-theme));

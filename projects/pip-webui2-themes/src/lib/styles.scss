@@ -1,8 +1,0 @@
-@use '@angular/material' as mat;
-@include mat.core();
-
-$themes: ();
-@import 'default-themes/styles';
-@import 'bootbarn-themes/styles';
-@import 'mst-themes/styles';
-@import 'styles/default';

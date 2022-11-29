@@ -1,0 +1,17 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$pip-green-primary: mat.define-palette(colors.$pip-green);
+$pip-green-accent: mat.define-palette(colors.$pip-amber, A700, A100, A400);
+$pip-green-warn: mat.define-palette(mat.$red-palette, A700);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-light-theme((
+    color: (
+      primary: $pip-green-primary,
+      accent: $pip-green-accent,
+      warn: $pip-green-warn,
+    ),
+    typography: $typography-config
+  ));
+}

@@ -15,15 +15,15 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
+      "es2019",
       "dom"
     ],
     "paths": {
-      "pip-webui2-themes": [
-        "dist/pip-webui2-themes"
+      "pip-webui-themes-ngx": [
+        "dist/pip-webui-themes-ngx"
       ],
-      "pip-webui2-themes/*": [
-        "dist/pip-webui2-themes/*"
+      "pip-webui-themes-ngx/*": [
+        "dist/pip-webui-themes-ngx/*"
       ]
     }
   }

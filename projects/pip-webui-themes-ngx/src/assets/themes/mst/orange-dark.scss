@@ -1,0 +1,29 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$mst-orange-dark-primary: mat.define-palette(colors.$mst-orange);
+$mst-orange-dark-accent: mat.define-palette(colors.$mst-white);
+$mst-orange-dark-warn: mat.define-palette(mat.$red-palette, 700);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-dark-theme((
+    color: (
+      primary: $mst-orange-dark-primary,
+      accent: $mst-orange-dark-accent,
+      warn: $mst-orange-dark-warn,
+    ),
+    typography: $typography-config
+  ));
+}
+
+@mixin mst-orange-dark-mixin() {
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button,
+  .mat-stroked-button,
+  .mat-icon-button,
+  .mat-fab,
+  .mat-mini-fab {
+    text-transform: uppercase;
+  }
+}

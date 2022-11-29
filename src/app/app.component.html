@@ -1,127 +1,157 @@
-<mat-sidenav-container class="content">
-  <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
-    <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
-      <span fxFlex="grow">{{app}}</span>
+<mat-sidenav-container *ngIf="ctx$ | async as ctx">
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="mat-elevation-z6">
+      <mat-toolbar-row fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+        <span fxFlex="grow">{{ 'title' | transloco }}</span>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-right: 8px">
-        <mat-icon>format_color_fill</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button *ngFor="let th of themes" mat-menu-item (click)="changeTheme(th)">
-          {{ themesLocalNames[th?.name] }}
-          <mat-icon *ngIf="th === theme" style="margin-bottom: 10px">check</mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+          <mat-icon>format_color_fill</mat-icon>
         </button>
-      </mat-menu>
-    </mat-toolbar-row>
-  </mat-toolbar>
+        <mat-menu #themeMenu="matMenu">
+          <button *ngFor="let theme of ctx.themes" mat-menu-item (click)="changeTheme(theme)">
+            {{ theme.displayName }}
+            <mat-icon *ngIf="theme.name === ctx.currentTheme?.name">check</mat-icon>
+          </button>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="languageMenu">
+          <mat-icon>translate</mat-icon>
+        </button>
+        <mat-menu #languageMenu="matMenu">
+          <button *ngFor="let lang of translate.getAvailableLangs()" mat-menu-item (click)="translate.setActiveLang(lang)">
+            {{ lang | transloco }}
+            <mat-icon *ngIf="lang === translate.getActiveLang()">check</mat-icon>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-  <div fxLayout="row" style="height: calc(100% - 68px);">
-    <div fxFlex="grow" style="width: calc(100% - 300px); 
-                          overflow: auto">
-      <div class="router">
-
-        <h2>Изменение картинки в зависимости от светлой или темной темы</h2>
-        <img [src]="picture" class="app-pic">
+    <div class="container">
+      <div class="content">
+        <h2>{{ 'picture' | transloco }}</h2>
+        <img [src]="ctx.picture" class="app-pic"/>
         <div>
-
-          <h2>Стилизация custom компонента</h2>
+          <h2>{{ 'custom' | transloco }}</h2>
           <pip-test [text]="newText"></pip-test>
 
-
-
-          <h2>Проверка работы material контролов для разных тем</h2>
+          <h2>{{ 'material' | transloco }}</h2>
           <mat-toolbar color="primary">
-            <mat-toolbar-row>Custom Toolbar</mat-toolbar-row>
+            <mat-toolbar-row>{{ 'toolbar' | transloco }}</mat-toolbar-row>
 
             <mat-toolbar-row>
-              <span>Second Line</span>
+              <span>{{ 'second_line' | transloco }}</span>
               <span class="example-spacer"></span>
               <mat-icon class="example-icon">verified_user</mat-icon>
-              <button mat-raised-button color="accent">Accent on primary</button>
-              <button mat-raised-button color="warn">Warn on primary</button>
+              <button mat-raised-button color="accent">{{ 'accent_on_primary' | transloco }}</button>
+              <button mat-raised-button color="warn">{{ 'warn_on_primary' | transloco }}</button>
             </mat-toolbar-row>
 
             <mat-toolbar-row>
-              <span>Third Line</span>
+              <span>{{ 'third_line' | transloco }}</span>
               <span class="example-spacer"></span>
               <mat-icon class="example-icon">favorite</mat-icon>
               <mat-icon class="example-icon">delete</mat-icon>
             </mat-toolbar-row>
           </mat-toolbar>
 
-          <h3>Basic Buttons</h3>
+          <h3>{{ 'basic_buttons' | transloco }}</h3>
           <div class="button-row">
-            <button mat-button>Basic</button>
-            <button mat-button color="primary">Primary</button>
-            <button mat-button color="accent">Accent</button>
-            <button mat-button color="warn">Warn</button>
-            <button mat-button disabled>Disabled</button>
-            <a mat-button routerLink=".">Link</a>
+            <button mat-button>{{ 'basic' | transloco }}</button>
+            <button mat-button color="primary">{{ 'primary' | transloco }}</button>
+            <button mat-button color="accent">{{ 'accent' | transloco }}</button>
+            <button mat-button color="warn">{{ 'warn' | transloco }}</button>
+            <button mat-button disabled>{{ 'disabled' | transloco }}</button>
+            <a mat-button routerLink=".">{{ 'link' | transloco }}</a>
           </div>
 
-          <h3>Raised Buttons</h3>
+          <h3>{{ 'raised_buttons' | transloco }}</h3>
           <div class="button-row">
-            <button mat-raised-button>Basic</button>
-            <button mat-raised-button color="primary">Primary</button>
-            <button mat-raised-button color="accent">Accent</button>
-            <button mat-raised-button color="warn">Warn</button>
-            <button mat-raised-button disabled>Disabled</button>
-            <a mat-raised-button routerLink=".">Link</a>
+            <button mat-raised-button>{{ 'basic' | transloco }}</button>
+            <button mat-raised-button color="primary">{{ 'primary' | transloco }}</button>
+            <button mat-raised-button color="accent">{{ 'accent' | transloco }}</button>
+            <button mat-raised-button color="warn">{{ 'warn' | transloco }}</button>
+            <button mat-raised-button disabled>{{ 'disabled' | transloco }}</button>
+            <a mat-raised-button routerLink=".">{{ 'link' | transloco }}</a>
           </div>
 
-          <h3>Stroked Buttons</h3>
+          <h3>{{ 'stroked_buttons' | transloco }}</h3>
           <div class="button-row">
-            <button mat-stroked-button>Basic</button>
-            <button mat-stroked-button color="primary">Primary</button>
-            <button mat-stroked-button color="accent">Accent</button>
-            <button mat-stroked-button color="warn">Warn</button>
-            <button mat-stroked-button disabled>Disabled</button>
-            <a mat-stroked-button routerLink=".">Link</a>
+            <button mat-stroked-button>{{ 'basic' | transloco }}</button>
+            <button mat-stroked-button color="primary">{{ 'primary' | transloco }}</button>
+            <button mat-stroked-button color="accent">{{ 'accent' | transloco }}</button>
+            <button mat-stroked-button color="warn">{{ 'warn' | transloco }}</button>
+            <button mat-stroked-button disabled>{{ 'disabled' | transloco }}</button>
+            <a mat-stroked-button routerLink=".">{{ 'link' | transloco }}</a>
           </div>
 
-          <h3>Fab Buttons</h3>
+          <h3>{{ 'fab_buttons' | transloco }}</h3>
           <div class="button-row">
-            <button mat-fab>Basic</button>
-            <button mat-fab color="primary">Primary</button>
-            <button mat-fab color="accent">Accent</button>
-            <button mat-fab color="warn">Warn</button>
-            <button mat-fab disabled>Disabled</button>
+            <button mat-fab>{{ 'basic' | transloco }}</button>
+            <button mat-fab color="primary">{{ 'primary' | transloco }}</button>
+            <button mat-fab color="accent">{{ 'accent' | transloco }}</button>
+            <button mat-fab color="warn">{{ 'warn' | transloco }}</button>
+            <button mat-fab disabled>{{ 'disabled' | transloco }}</button>
             <button mat-fab>
               <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
             </button>
-            <a mat-fab routerLink=".">Link</a>
+            <a mat-fab routerLink=".">{{ 'link' | transloco }}</a>
           </div>
 
-          <h3>Mini Fab Buttons</h3>
+          <h3>{{ 'mini_fab_buttons' | transloco }}</h3>
           <div class="button-row">
-            <button mat-mini-fab>Basic</button>
-            <button mat-mini-fab color="primary">Primary</button>
-            <button mat-mini-fab color="accent">Accent</button>
-            <button mat-mini-fab color="warn">Warn</button>
-            <button mat-mini-fab disabled>Disabled</button>
+            <button mat-mini-fab>{{ 'basic' | transloco }}</button>
+            <button mat-mini-fab color="primary">{{ 'primary' | transloco }}</button>
+            <button mat-mini-fab color="accent">{{ 'accent' | transloco }}</button>
+            <button mat-mini-fab color="warn">{{ 'warn' | transloco }}</button>
+            <button mat-mini-fab disabled>{{ 'disabled' | transloco }}</button>
             <button mat-mini-fab>
               <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
             </button>
-            <a mat-mini-fab routerLink=".">Link</a>
+            <a mat-mini-fab routerLink=".">{{ 'link' | transloco }}</a>
           </div>
         </div>
 
-        <h2>pip classes</h2>
+        <h2>{{ 'pip_classes' | transloco }}</h2>
         <div class="pip-title">pip-title</div>
         <div class="pip-subtitle">pip-subtitle</div>
         <div class="pip-error">pip-error</div>
         <div class="pip-success">pip-success</div>
         <div class="pip-link">pip-link</div>
+        <div class="pip-classes">
+          <div *ngFor="let prop of properties">
+            <pre>{{ prop }}</pre>
+            <ng-container *ngFor="let palette of palletes">
+              <div [ngClass]="[
+              'pip-' + prop + '-' + palette,
+              prop === 'color' ? '' : 'pip-color-' + palette + '-contrast'
+              ]">{{ 'pip-' + prop + '-' + palette }}</div>
+              <div [ngClass]="[
+              'pip-' + prop + '-' + palette + '-contrast',
+              prop === 'color' ? 'pip-background-color-' + palette : ''
+              ]">{{ 'pip-' + prop + '-' + palette + '-contrast' }}</div>
+              <div [ngClass]="[
+              'pip-' + prop + '-' + palette + '-light',
+              prop === 'color' ? 'pip-background-color-' + palette : ''
+              ]">{{ 'pip-' + prop + '-' + palette + '-light' }}</div>
+            </ng-container>
+            <div [ngClass]="['pip-' + prop + '-text', prop === 'color' ? '' : 'pip-color-card']">{{ 'pip-' + prop + '-text' }}</div>
+            <div [ngClass]="'pip-' + prop + '-secondary-text'">{{ 'pip-' + prop + '-secondary-text' }}</div>
+            <div [ngClass]="['pip-' + prop + '-card', prop === 'color' ? 'pip-background-color-text' : '']">{{ 'pip-' + prop + '-card' }}</div>
+          </div>
+        </div>
 
-        <h2>Forms</h2>
+
+        <h2>{{ 'forms' | transloco }}</h2>
         <mat-form-field>
-          <input matInput placeholder="Simple field">
+          <input matInput [placeholder]="'simple_field' | transloco"/>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Field with error" [formControl]="email" required>
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput [placeholder]="'field_with_error' | transloco" [formControl]="email" required/>
+          <mat-error *ngIf="getFirstError(email) as err">
+            <ng-container *ngIf="err === 'required'">{{ 'error_required' | transloco }}</ng-container>
+            <ng-container *ngIf="err === 'email'">{{ 'error_email' | transloco }}</ng-container>
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
-  </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>

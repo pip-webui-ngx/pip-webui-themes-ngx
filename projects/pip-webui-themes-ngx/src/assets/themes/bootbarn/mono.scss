@@ -1,0 +1,18 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+@use '../pip-mixin';
+
+$bootbarn-mono-primary: mat.define-palette(mat.$blue-grey-palette, 900);
+$bootbarn-mono-accent: mat.define-palette(mat.$green-palette, 600, A100, A400);
+$bootbarn-mono-warn: mat.define-palette(mat.$red-palette, A200);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-light-theme((
+    color: (
+      primary: $bootbarn-mono-primary,
+      accent: $bootbarn-mono-accent,
+      warn: $bootbarn-mono-warn,
+    ),
+    typography: $typography-config
+  ));
+}

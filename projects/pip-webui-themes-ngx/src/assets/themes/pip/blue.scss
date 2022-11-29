@@ -1,0 +1,17 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$pip-blue-primary: mat.define-palette(mat.$blue-palette);
+$pip-blue-accent: mat.define-palette(colors.$pip-green, A700, A100, A400);
+$pip-blue-warn: mat.define-palette(mat.$red-palette, A200);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-light-theme((
+    color: (
+      primary: $pip-blue-primary,
+      accent: $pip-blue-accent,
+      warn: $pip-blue-warn,
+    ),
+    typography: $typography-config
+  ));
+}

@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$bootbarn-warm-primary: mat.define-palette($bootbarn-deep-orange, 900);
-$bootbarn-warm-accent:  mat.define-palette($bootbarn-teal, A700, A100, A400);
-$bootbarn-warm-warn:    mat.define-palette(mat.$red-palette, A200);
-$bootbarn-warm-theme:   mat.define-light-theme($bootbarn-warm-primary, $bootbarn-warm-accent, $bootbarn-warm-warn);
-$themes: map-merge($themes, ('bootbarn-warm-theme': $bootbarn-warm-theme));

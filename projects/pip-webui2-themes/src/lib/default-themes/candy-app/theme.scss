@@ -1,4 +1,0 @@
-@use '@angular/material' as mat;
-.candy-theme {
-    @include mat.all-component-themes($candy-app-theme);
-}

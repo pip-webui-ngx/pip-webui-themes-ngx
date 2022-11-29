@@ -1,5 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,15 +10,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule } from 'pip-webui2-themes';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { mstThemes, PipThemesModule, pipWebUI2ThemesList } from 'pip-webui-themes-ngx';
 import { AppComponent } from './app.component';
 import { TestModule } from './test/test.module';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -36,9 +35,13 @@ import { TestModule } from './test/test.module';
     ReactiveFormsModule,
 
     TestModule,
-    PipThemesModule.forRoot()
+    PipThemesModule.forRoot({
+      themes: [...pipWebUI2ThemesList, mstThemes['Elegant']],
+    }),
+    HttpClientModule,
+    TranslocoRootModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

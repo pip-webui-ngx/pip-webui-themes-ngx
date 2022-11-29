@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$pip-dark-primary: mat.define-palette(mat.$grey-palette, 900);
-$pip-dark-accent:  mat.define-palette($pip-green, A700, A100, A400);
-$pip-dark-warn:    mat.define-palette(mat.$red-palette, A700);
-$pip-dark-theme:   mat.define-dark-theme($pip-dark-primary, $pip-dark-accent, $pip-dark-warn);
-$themes: map-merge($themes, ('pip-dark-theme': $pip-dark-theme));

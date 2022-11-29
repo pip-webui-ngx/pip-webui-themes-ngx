@@ -1,71 +1,54 @@
-import { Component } from '@angular/core';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { UntypedFormControl, Validators } from '@angular/forms';
-
-import { PipThemesService, Theme } from 'pip-webui2-themes';
+import { Component, Inject, Optional } from '@angular/core';
+import { MediaObserver } from '@angular/flex-layout';
+import { AbstractControl, UntypedFormControl, Validators } from '@angular/forms';
+import { TranslocoService } from '@ngneat/transloco';
+import { PipThemesService, Theme } from 'pip-webui-themes-ngx';
+import { combineLatest, distinctUntilChanged, map, Observable, tap } from 'rxjs';
+import { PIP_THEMES_CONFIG, PipThemesConfig, ThemePalette } from '../../projects/pip-webui-themes-ngx/src/lib/shared';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public themes: Theme[];
-  public theme: Theme;
-  public picture: string;
-  public mode: string;
-  public app = 'Themes';
-  public email = new UntypedFormControl('', [Validators.required, Validators.email]);
-  public newText = 'Random text from outside';
-  public activeMediaQuery: boolean;
-  public themesLocalNames: any = {
-    'candy-theme': 'Candy',
-    'unicorn-dark-theme': 'Unicorn Dark',
-    'pip-blue-theme': 'Blue',
-    'pip-grey-theme': 'Grey',
-    'pip-pink-theme': 'Pink',
-    // 'pip-green-theme': 'Green',
-    'pip-navy-theme': 'Navy',
-    'pip-amber-theme': 'Amber',
-    'pip-orange-theme': 'Orange',
-    'pip-dark-theme': 'Dark',
-    'pip-black-theme': 'Black',
-    'bootbarn-warm-theme': 'Bootbarn Warm',
-    'bootbarn-cool-theme': 'Bootbarn Cool',
-    'bootbarn-mono-theme': 'Bootbarn Mono',
-    'mst-black-theme': 'MST Black',
-    'mst-black-dark-theme': 'MST Black Dark',
-    'mst-mono-theme': 'MST Mono',
-    'mst-orange-theme': 'MST Orange',
-    'mst-orange-dark-theme': 'MST Orange Dark',
-    'mst-elegant-theme': 'MST Elegant'
-  };
+  ctx$: Observable<{
+    currentTheme: Theme;
+    themes: Theme[];
+    picture: string;
+  }>;
+  palletes = ['accent', 'primary', 'warn'];
+  properties = ['color', 'background-color'];
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
+  newText = 'Random text from outside';
 
   public constructor(
-    private service: PipThemesService,
-    public media: MediaObserver
+    @Optional() @Inject(PIP_THEMES_CONFIG) configs: PipThemesConfig[],
+    private pipThemes: PipThemesService,
+    public media: MediaObserver,
+    public translate: TranslocoService,
   ) {
-    this.themes = this.service.themes;
-    this.theme = this.service.selectedTheme;
-    this.picture = this.theme.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
-
-    media.asObservable().subscribe((change: any) => {
-      this.activeMediaQuery = change && change.mqAlias === 'xs' ? true : false;
-      this.mode = change && change.mqAlias === 'xs' ? null : 'side';
+    this.pipThemes.selectTheme(this.pipThemes.config.defaultThemeName);
+    this.ctx$ = combineLatest({
+      currentTheme: this.pipThemes.currentTheme$.pipe(tap((t) => console.log('current theme', t))),
+      themes: this.pipThemes.themes$.pipe(map((themes) => Array.from(themes.values()))),
+      picture: this.pipThemes.currentTheme$.pipe(
+        map((theme) => theme?.info?.palette),
+        distinctUntilChanged(),
+        map((palette) => (palette === ThemePalette.Light ? '/assets/1.jpg' : '/assets/2.jpg')),
+      ),
     });
-
-  }
-  public changeTheme(theme) {
-    this.theme = theme;
-    this.service.selectedTheme = theme;
-    this.picture = this.theme.palette === 'light' ? '/assets/1.jpg' : '/assets/2.jpg';
   }
 
+  changeTheme(theme: Theme) {
+    this.pipThemes.selectTheme(theme.name);
+  }
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
-        '';
+  getFirstError(ctrl: AbstractControl): string | null {
+    if (ctrl.errors && Object.keys(ctrl.errors).length) {
+      return Object.keys(ctrl.errors)[0];
+    }
+    return null;
   }
 }

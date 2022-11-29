@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$mst-orange-dark-primary: mat.define-palette($mst-orange);
-$mst-orange-dark-accent:  mat.define-palette($mst-white);
-$mst-orange-dark-warn:    mat.define-palette(mat.$red-palette, 700);
-$mst-orange-dark-theme:   mat.define-dark-theme($mst-orange-dark-primary, $mst-orange-dark-accent, $mst-orange-dark-warn);
-$themes: map-merge($themes, ('mst-orange-dark-theme': $mst-orange-dark-theme));

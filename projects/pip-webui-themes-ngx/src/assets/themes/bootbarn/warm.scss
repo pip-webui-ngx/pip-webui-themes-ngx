@@ -1,0 +1,17 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$bootbarn-warm-primary: mat.define-palette(colors.$bootbarn-deep-orange, 900);
+$bootbarn-warm-accent: mat.define-palette(colors.$bootbarn-teal, A700, A100, A400);
+$bootbarn-warm-warn: mat.define-palette(mat.$red-palette, A200);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-light-theme((
+    color: (
+      primary: $bootbarn-warm-primary,
+      accent: $bootbarn-warm-accent,
+      warn: $bootbarn-warm-warn,
+    ),
+    typography: $typography-config
+  ));
+}

@@ -7,7 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PipThemesModule } from 'pip-webui2-themes';
+import { PipThemesModule } from 'pip-webui-themes-ngx';
 
 import { AppComponent } from './app.component';
 import { TestModule } from './test/test.module';
@@ -18,9 +18,7 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
       imports: [
         FlexLayoutModule,
         FormsModule,
@@ -33,7 +31,7 @@ describe('AppComponent', () => {
 
         PipThemesModule,
         TestModule,
-      ]
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
@@ -47,13 +45,15 @@ describe('AppComponent', () => {
   it('should contain specific text in first h2 tag', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toContain('Изменение картинки в зависимости от светлой или темной темы');
+    expect(compiled.querySelector('h2').textContent).toContain(
+      'Изменение картинки в зависимости от светлой или темной темы',
+    );
   }));
   it('should change picture if theme is dark', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('img.app-pic').getAttribute('src')).toBe('/assets/1.jpg');
-    component.changeTheme({name: 'unicorn-dark-theme', palette: 'dark'});
+    component.changeTheme({ name: 'unicorn-dark-theme', palette: 'dark' });
     fixture.detectChanges();
     expect(compiled.querySelector('img.app-pic').getAttribute('src')).toBe('/assets/2.jpg');
   }));

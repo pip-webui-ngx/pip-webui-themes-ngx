@@ -1,0 +1,29 @@
+@use 'node_modules/@angular/material' as mat;
+@use 'colors';
+
+$mst-black-dark-primary: mat.define-palette(colors.$mst-dark);
+$mst-black-dark-accent: mat.define-palette(colors.$mst-white);
+$mst-black-dark-warn: mat.define-palette(mat.$red-palette, A200);
+
+@function create-theme($typography-config: null) {
+  @return mat.define-dark-theme((
+    color: (
+      primary: $mst-black-dark-primary,
+      accent: $mst-black-dark-accent,
+      warn: $mst-black-dark-warn,
+    ),
+    typography: $typography-config
+  ));
+}
+
+@mixin mst-black-dark-mixin() {
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button,
+  .mat-stroked-button,
+  .mat-icon-button,
+  .mat-fab,
+  .mat-mini-fab {
+    text-transform: uppercase;
+  }
+}

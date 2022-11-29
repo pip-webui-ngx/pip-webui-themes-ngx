@@ -1,0 +1,5 @@
+@use 'test/test-theme' as pip-test;
+
+@mixin theme($theme-or-color-config) {
+  @include pip-test.theme($theme-or-color-config);
+}

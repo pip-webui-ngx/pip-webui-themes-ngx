@@ -1,4 +1,0 @@
-@use '@angular/material' as mat;
-.unicorn-dark-theme {
-    @include mat.all-component-themes($dark-theme);
-}

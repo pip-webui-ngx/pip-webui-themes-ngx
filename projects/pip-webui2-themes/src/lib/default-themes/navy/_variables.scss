@@ -1,6 +1,0 @@
-@use '@angular/material' as mat;
-$pip-navy-primary: mat.define-palette($pip-navy);
-$pip-navy-accent:  mat.define-palette($pip-teal, A700, A100, A400);
-$pip-navy-warn:    mat.define-palette(mat.$red-palette, A200);
-$pip-navy-theme:   mat.define-light-theme($pip-navy-primary, $pip-navy-accent, $pip-navy-warn);
-$themes: map-merge($themes, ('pip-navy-theme': $pip-navy-theme));
