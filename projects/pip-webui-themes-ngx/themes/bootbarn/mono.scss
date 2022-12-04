@@ -1,6 +1,6 @@
 @use 'node_modules/@angular/material' as mat;
 @use 'colors';
-@use '../pip-mixin';
+@use '../../src/pip-webui-themes-theme';
 
 $bootbarn-mono-primary: mat.define-palette(mat.$blue-grey-palette, 900);
 $bootbarn-mono-accent: mat.define-palette(mat.$green-palette, 600, A100, A400);

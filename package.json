@@ -6,8 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build pip-webui-themes-ngx",
-    "build:lib-styles": "scss-bundle -c ./projects/pip-webui-themes-ngx/scss-bundle.styles.json && scss-bundle -c ./projects/pip-webui-themes-ngx/scss-bundle.variables.json",
+    "build:lib": "ng build pip-webui-themes-ngx && cd ./dist/pip-webui-themes-ngx && npm pack",
     "format:check": "prettier --config .\\.prettierrc --list-different \"{projects,src/{app,environments,assets}}/**/*{.ts,.js,.html,.json,.css,.scss}\"",
     "format:fix": "prettier --config .\\.prettierrc --write \"{projects,src/{app,environments,assets}}/**/*{.ts,.js,.html,.json,.css,.scss}\"",
     "test": "ng test",
@@ -43,7 +42,6 @@
     "@ngneat/transloco": "^4.1.1",
     "lodash-es": "^4.17.21",
     "rxjs": "^7.5.6",
-    "scss-bundle": "^3.1.2",
     "tslib": "^2.4.0",
     "zone.js": "~0.11.8"
   },

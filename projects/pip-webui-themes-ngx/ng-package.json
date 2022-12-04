@@ -6,9 +6,14 @@
   },
   "assets": [
     {
-      "input": "src/assets/themes",
+      "input": "themes",
       "glob": "**/*",
       "output": "themes"
+    },
+    {
+      "input": "src",
+      "glob": "**/*.scss",
+      "output": ""
     }
   ],
   "allowedNonPeerDependencies": [

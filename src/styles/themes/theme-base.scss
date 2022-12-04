@@ -1,11 +1,11 @@
 @use '../../app/app-theme' as app;
 @use 'node_modules/@angular/material' as mat;
-@use "dist/pip-webui-themes-ngx/themes/pip-mixin" as pip;
+@use "dist/pip-webui-themes-ngx/pip-webui-themes-theme" as pip-webui-themes;
 
 @include mat.core();
 
 @mixin create-theme($config-or-theme) {
   @include mat.all-component-themes($config-or-theme);
-  @include pip.pip-webui-themes-ngx-mixin($config-or-theme);
+  @include pip-webui-themes.theme($config-or-theme);
   @include app.theme($config-or-theme);
 }

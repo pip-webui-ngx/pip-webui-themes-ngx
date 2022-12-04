@@ -3,7 +3,7 @@ import { MediaObserver } from '@angular/flex-layout';
 import { AbstractControl, UntypedFormControl, Validators } from '@angular/forms';
 import { TranslocoService } from '@ngneat/transloco';
 import { PipThemesService, Theme } from 'pip-webui-themes-ngx';
-import { combineLatest, distinctUntilChanged, map, Observable, tap } from 'rxjs';
+import { combineLatest, distinctUntilChanged, map, Observable } from 'rxjs';
 import { PIP_THEMES_CONFIG, PipThemesConfig, ThemePalette } from '../../projects/pip-webui-themes-ngx/src/lib/shared';
 
 @Component({
@@ -31,7 +31,7 @@ export class AppComponent {
   ) {
     this.pipThemes.selectTheme(this.pipThemes.config.defaultThemeName);
     this.ctx$ = combineLatest({
-      currentTheme: this.pipThemes.currentTheme$.pipe(tap((t) => console.log('current theme', t))),
+      currentTheme: this.pipThemes.currentTheme$,
       themes: this.pipThemes.themes$.pipe(map((themes) => Array.from(themes.values()))),
       picture: this.pipThemes.currentTheme$.pipe(
         map((theme) => theme?.info?.palette),

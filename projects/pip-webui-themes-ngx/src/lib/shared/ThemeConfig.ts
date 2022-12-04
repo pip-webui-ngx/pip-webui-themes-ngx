@@ -18,17 +18,12 @@ export class PipThemesConfig {
    * Url from where themes will be loaded
    */
   path: string;
-  /**
-   * localStorage key name where config should be stored
-   */
-  localStorageKey?: string;
 }
 
 export const defaultPipThemesConfig: PipThemesConfig = {
   defaultThemeName: 'pip-blue',
   themes: [pipWebUI2Themes.Blue],
   path: '',
-  localStorageKey: 'theme',
 };
 
-export const PIP_THEMES_CONFIG = new InjectionToken<Partial<PipThemesConfig>>('pip-webui2-themes config');
+export const PIP_THEMES_CONFIG = new InjectionToken<Partial<PipThemesConfig>>('pip-webui-themes-ngx config');

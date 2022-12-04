@@ -20,10 +20,6 @@ export class Theme {
    * Custom path for theme loading
    */
   path?: string;
-  /**
-   * Custom name patterns for theme loading
-   */
-  namePatterns?: string[];
 }
 
 export enum ThemePalette {
