@@ -4,7 +4,7 @@ name: Pip-WebUI Themes ngx Delivery
 on: 
   push:
     branches:
-      - main
+      - master
     paths:
     - '**'
     - '!README.md'
