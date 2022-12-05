@@ -47,7 +47,7 @@ if (docker ps -q -a -f name=$container) {
     docker rm $container --force
 }
 # Run tests
-docker run --name $container $testImage /bin/sh -c $package.scripts."test:ci"
+docker run --name $container $testImage /bin/sh -c $package.scripts."test:lib"
 
 # Check if test was successfull
 $ErrorActionPreference = "Continue"
