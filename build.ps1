@@ -48,7 +48,7 @@ if (docker ps -q -a -f name=$container) {
 }
 
 # Create and copy compiled files, then destroy
-docker run --name $container $buildImage /bin/sh -c "$($package.scripts.build)"
+docker run --name $container $buildImage /bin/sh -c "$($package.scripts."build:lib")"
 # Check if the build was successful
 if ($LastExitCode -ne 0) {
     Write-Error "Component build failed with error $LastExitCode"
