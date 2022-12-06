@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 # Get component metadata and set necessary variables
 $component = Get-Content -Path "$PSScriptRoot/component.json" | ConvertFrom-Json
 $package = Get-Content -Path "$PSScriptRoot/package.json" | ConvertFrom-Json
-$container=$component.name
+$container = $component.name
 
 # Set test image name
 $testImage = "$($component.registry)/$($component.name):$($component.version)-$($component.build)-test"
