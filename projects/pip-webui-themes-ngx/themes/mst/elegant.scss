@@ -7,7 +7,7 @@ $mst-elegant-primary: mat.define-palette(colors.$mst-elegant-teal);
 $mst-elegant-accent: mat.define-palette(colors.$mst-elegant-orange);
 $mst-elegant-warn: mat.define-palette(mat.$red-palette, A200);
 
-$typography-config: typography.define-typography-config(
+$mst-elegant-typography-config: typography.define-typography-config(
   $font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif',
   $display-4: typography.define-typography-level(112px, 112px, 300, -0.0134em),
   $display-3: typography.define-typography-level(56px, 56px, 400, -0.0089em),
