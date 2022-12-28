@@ -193,6 +193,14 @@ $mst-elegant-pallets: (
     text-decoration: none !important;
   }
 
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: mat.get-color-from-palette($foreground, text) !important;
+  }
+
+  .mat-pseudo-checkbox-checked .mat-pseudo-checkbox-indeterminate {
+    background: mat.get-color-from-palette($primary) !important;
+  }
+
   .mst-primary-snackbar {
     background-color: mat.get-color-from-palette($primary);
     color: mat.get-color-from-palette($primary, default-contrast);
