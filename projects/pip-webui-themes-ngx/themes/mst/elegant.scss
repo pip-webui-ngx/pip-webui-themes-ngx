@@ -6,22 +6,23 @@
 $mst-elegant-primary: mat.define-palette(colors.$mst-elegant-teal);
 $mst-elegant-accent: mat.define-palette(colors.$mst-elegant-orange);
 $mst-elegant-warn: mat.define-palette(mat.$red-palette, A200);
+$mst-elegant-font-family: Source Sans Pro, Helvetica Neue, sans-serif;
 
 $mst-elegant-typography-config: typography.define-typography-config(
-  $font-family: 'Source Sans Pro, "Helvetica Neue", sans-serif',
-  $display-4: typography.define-typography-level(112px, 112px, 300, -0.0134em),
-  $display-3: typography.define-typography-level(56px, 56px, 400, -0.0089em),
-  $display-2: typography.define-typography-level(45px, 48px, 400, 0em),
-  $display-1: typography.define-typography-level(34px, 40px, 400, 0.0074em),
-  $headline: typography.define-typography-level(24px, 32px, 400, 0em),
-  $title: typography.define-typography-level(20px, 32px, 400, 0.0075em),
-  $subheading-2: typography.define-typography-level(16px, 28px, 400, 0.0094em),
-  $subheading-1: typography.define-typography-level(15px, 24px, 400, 0.0067em),
-  $body-2: typography.define-typography-level(16px, 24px, 400, 0),
-  $body-1: typography.define-typography-level(14px, 20px, 400, 0.0179em),
-  $button: typography.define-typography-level(14px, 14px, 400, 0.0893em),
-  $caption: typography.define-typography-level(12px, 20px, 400, 0.0333em),
-  $input: typography.define-typography-level(inherit, 1.125, 400, 1.5px),
+  $font-family: $mst-elegant-font-family,
+  $display-4: typography.define-typography-level(112px, 112px, 300, $mst-elegant-font-family, -0.0134em),
+  $display-3: typography.define-typography-level(56px, 56px, 400, $mst-elegant-font-family, -0.0089em),
+  $display-2: typography.define-typography-level(45px, 48px, 400, $mst-elegant-font-family, 0em),
+  $display-1: typography.define-typography-level(34px, 40px, 400, $mst-elegant-font-family, 0.0074em),
+  $headline: typography.define-typography-level(24px, 32px, 400, $mst-elegant-font-family, 0em),
+  $title: typography.define-typography-level(20px, 32px, 400, $mst-elegant-font-family, 0.0075em),
+  $subheading-2: typography.define-typography-level(16px, 28px, 400, $mst-elegant-font-family, 0.0094em),
+  $subheading-1: typography.define-typography-level(15px, 24px, 400, $mst-elegant-font-family, 0.0067em),
+  $body-2: typography.define-typography-level(16px, 24px, 400, $mst-elegant-font-family, 0),
+  $body-1: typography.define-typography-level(14px, 20px, 400, $mst-elegant-font-family, 0.0179em),
+  $button: typography.define-typography-level(14px, 14px, 400, $mst-elegant-font-family, 0.0893em),
+  $caption: typography.define-typography-level(12px, 20px, 400, $mst-elegant-font-family, 0.0333em),
+  $input: typography.define-typography-level(inherit, 1.125, 400, $mst-elegant-font-family, 1.5px),
 );
 
 $mst-elegant-palette-orange: map-get(colors.$mst-elegant-orange, 400), map-get(colors.$mst-elegant-orange, 300),
