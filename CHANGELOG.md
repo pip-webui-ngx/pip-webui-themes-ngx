@@ -1,5 +1,12 @@
 # Pip.WebUI.Themes Angular  Changelog
 
+## <a name="14.0.6"></a> 14.0.6 (2023-02-10)
+
+Fixes for MST elegant theme font
+
+#### Features
+* **themes** Themes switching services
+
 ## <a name="14.0.5"></a> 14.0.5 (2023-02-10)
 
 Fixes for MST elegant theme and less strict dependencies

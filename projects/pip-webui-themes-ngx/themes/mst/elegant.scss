@@ -97,8 +97,13 @@ $mst-elegant-pallets: (
   $background: map-get($color, background);
   $foreground: map-get($color, foreground);
   $primary: map-get($color, primary);
+  $typography: mat.get-typography-config($config-or-theme);
   $warn: map-get($color, warn);
   $underline-color: mat.get-color-from-palette($primary);
+
+  body {
+    @include mat.typography-level($typography, 'body-2');
+  }
 
   .mat-form-field {
     letter-spacing: 0;
