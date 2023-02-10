@@ -1,6 +1,6 @@
 {
   "name": "pip-webui-themes-ngx",
-  "version": "14.0.4",
+  "version": "14.0.5",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
